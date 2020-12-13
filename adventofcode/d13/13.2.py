@@ -10,13 +10,11 @@ def compute_multiplication_list(divisors: List[int]) -> Tuple[int, List[int]]:
     multiplication = 1
     multiplication_list = []
 
-    for bus in divisors:  # O(n)
-        if bus != 0:
-            multiplication *= bus
+    for divisor in divisors:  # O(n)
+        multiplication *= divisor
 
-    for bus in divisors:  # O(n)
-        if bus != 0:
-            multiplication_list.append(multiplication // bus)
+    for divisor in divisors:  # O(n)
+        multiplication_list.append(multiplication // divisor)
 
     return multiplication, multiplication_list
 
@@ -59,7 +57,7 @@ def main():
         reminders = [x - buses.index(x) for x in divisors]  # list of reminders for Chinese remainder theorem
 
     # Total complexity is O(n)
-    multiplication, multiplication_list = compute_multiplication_list(buses)  # O(n)
+    multiplication, multiplication_list = compute_multiplication_list(divisors)  # O(n)
     coefficients = compute_coefficients(multiplication_list, divisors)  # O(n)
     answer = compute_answer(coefficients, multiplication_list, reminders, multiplication)  # O(n)
     print(answer)
