@@ -7,7 +7,7 @@ def main():
     # Total complexity is O(n)
     remaining_times = [bus - timestamp % bus for bus in buses]  # O(n)
     min_element = min(remaining_times)  # O(n)
-    bus = buses[remaining_times.index(min_element)]  # O(1)
+    bus = buses[remaining_times.index(min_element)]  # O(n)
 
     print(min_element * bus)
 
